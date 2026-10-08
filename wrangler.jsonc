@@ -1,0 +1,8 @@
+{
+  // Configuración para publicar el menú en Cloudflare (sitio estático)
+  "name": "menu-terraza",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./"
+  }
+}
