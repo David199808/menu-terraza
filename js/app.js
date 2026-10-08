@@ -93,13 +93,20 @@
   /* ---------- Resaltar la categoría visible ---------- */
 
   const chips = [...catsEl.querySelectorAll(".chip")];
+  let activa = null;
   const activar = (id) => {
+    if (id === activa) return; // nada cambió: no hacer nada
+    activa = id;
     chips.forEach((c) => {
       const on = c.dataset.id === id;
       c.classList.toggle("is-active", on);
       if (on) {
         c.setAttribute("aria-current", "true");
-        c.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+        // Centra el botón moviendo SOLO la barra de categorías (horizontal).
+        // No usar scrollIntoView: también mueve la página y frena el scroll.
+        const posBoton = c.getBoundingClientRect().left - catsEl.getBoundingClientRect().left + catsEl.scrollLeft;
+        const izquierda = posBoton - (catsEl.clientWidth - c.offsetWidth) / 2;
+        catsEl.scrollTo({ left: Math.max(0, izquierda), behavior: "smooth" });
       } else {
         c.removeAttribute("aria-current");
       }
