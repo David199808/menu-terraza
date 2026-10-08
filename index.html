@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú · La Terraza Grill House</title>
+  <meta name="description" content="Menú de La Terraza Grill House: brochetas, picadas, hamburguesas a la parrilla, smash, cócteles y bebidas.">
+  <meta name="theme-color" content="#121110">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <!-- Tipografías del logo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Encabezado con el logo -->
+  <header class="hero">
+    <img class="hero__logo" src="img/logo.svg" alt="La Terraza Grill House" width="966" height="531">
+    <p class="hero__script">Nuestro menú</p>
+  </header>
+
+  <!-- Barra de categorías (se llena desde js/app.js) -->
+  <nav class="cats" aria-label="Categorías del menú">
+    <div class="cats__inner" id="cats"></div>
+  </nav>
+
+  <!-- Buscador -->
+  <div class="search">
+    <label class="search__label" for="search">Buscar en el menú</label>
+    <input class="search__input" id="search" type="search" placeholder="Buscar: hamburguesa, limonada, cholupa…" autocomplete="off">
+  </div>
+
+  <!-- Aquí se dibuja el menú (desde js/menu-data.js) -->
+  <main class="menu" id="menu"></main>
+
+  <p class="empty" id="empty" hidden>No encontramos nada con esa búsqueda.</p>
+
+  <footer class="footer">
+    <img class="footer__logo" src="img/logo.svg" alt="" width="966" height="531">
+    <p>Precios en pesos colombianos.</p>
+  </footer>
+
+  <!-- Primero los datos, después la lógica -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
